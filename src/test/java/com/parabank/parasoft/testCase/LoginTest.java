@@ -1,6 +1,6 @@
 package com.parabank.parasoft.testCase;
 
-import com.parabank.parasoft.pages.AccountOverViewPage;
+import com.parabank.parasoft.pages.HomePage;
 import com.parabank.parasoft.pages.LoginPage;
 import com.parabank.parasoft.utill.General;
 import org.testng.Assert;
@@ -40,7 +40,7 @@ public class LoginTest extends BageTest{
     public void doLoginSuccessfull()
     {
         LoginPage loginPage=page.getInstance(LoginPage.class);
-      AccountOverViewPage overViewPage = loginPage
+      HomePage overViewPage = loginPage
                 .fllUserName("sqa")
                 .fllPassWord("sqa")
                 .clickLoinBtn();

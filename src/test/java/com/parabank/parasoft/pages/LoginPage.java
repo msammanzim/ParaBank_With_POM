@@ -2,7 +2,6 @@ package com.parabank.parasoft.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
@@ -20,12 +19,13 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public AccountOverViewPage clickLoinBtn() {
+    public HomePage clickLoinBtn() {
         getWebElement(By.xpath("//input[@value='Log In']")).click();
 
-        return getInstance(AccountOverViewPage.class);
+        return getInstance(HomePage.class);
     }
-    public LoginPage clickLoginLinkBtn(){
+
+    public LoginPage clickLoginLinkBtn() {
         getWebElement(By.xpath("//input[@value='Log In']")).click();
         return this;
     }
@@ -41,8 +41,21 @@ public class LoginPage extends BasePage {
         return getInstance(SigningUp.class);
     }
 
-    public boolean hasError(){
-        return getWebElenements(By.ByClassName.className("error")).size()>0;
+    public boolean hasError() {
+        return getWebElenements(By.ByClassName.className("error")).size() > 0;
 
     }
+
+    public HomePage dologin(String username, String password) {
+
+        return fllUserName (username)
+                .fllPassWord(password)
+                .clickLoinBtn();
+    }
+    public OpenNewAccountPage clickOpenAccountLink(){
+
+        getWebElement(By.cssSelector("a[href='openaccount.htm']")).click();
+        return getInstance(OpenNewAccountPage.class);
+    }
+
 }
